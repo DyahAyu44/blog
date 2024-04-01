@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,5 +35,8 @@ Route::group([
         Route::view('/admin', 'data-admin')->name('admin')->middleware('can:role, "admin"');
     });
 
-    Route::resource('/posts', \App\Http\Controllers\PostController::class);
+    Route::get('/posts', \App\Http\Controllers\PostController::class);
+    // Route::get('user/tampil', [PostController::class, 'tampildata'])->name('tampildata')->middleware('auth');
+    // Route::get('user/tambah', [PostController::class, 'tambahdata'])->name('tambahdata')->middleware('auth');
+    // Route::post('user/simpan', [PostController::class, 'simpandata'])->name('simpandata')->middleware('auth');
 });
