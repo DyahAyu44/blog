@@ -33,4 +33,6 @@ Route::group([
         Route::view('/post', 'data-post')->name('post')->middleware('can:role, "admin", "peminjam"');
         Route::view('/admin', 'data-admin')->name('admin')->middleware('can:role, "admin"');
     });
+
+    Route::resource('/posts', \App\Http\Controllers\PostController::class);
 });

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Author</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('frontend/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -27,9 +27,7 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        <!-- Sidebar -->
-        @include('partials.sidebar')
-        <!-- End of Sidebar -->
+       
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -47,7 +45,7 @@
 
                     <!-- Topbar Search -->
                     <div class="container">
-            <a class="navbar-brand" href="#">SEWA MOBIL</a>
+            <a class="navbar-brand" href="#">BLOG</a>
             <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -58,9 +56,14 @@
                             <a href="{{ route('admin.login') }}" class="nav-link">Login</a>
                         </li>
                         @else
-                        @can('role',['peminjam'])
+                        @can('role',['admin','author'])
                             <li class="nav-item">
-                                <a href="{{ route('post') }}" class="nav-link">Mobil</a>
+                                <a href="{{ route('post') }}" class="nav-link">Post</a>
+                            </li>
+                        @endcan
+                        @can('role','admin')
+                            <li class="nav-item">
+                                <a href="{{ route('admin') }}" class="nav-link">Akun</a>
                             </li>
                         @endcan
                         <li class="nav-item dropdown">
@@ -98,7 +101,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard Admin</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -114,7 +117,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; Your Website 2024</span>
                     </div>
                 </div>
             </footer>
